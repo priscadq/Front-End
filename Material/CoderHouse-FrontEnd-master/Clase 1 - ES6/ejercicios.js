@@ -36,9 +36,12 @@ function triple(x) {
   return x * 3;
 }
 
+const triple = x => x * 3;
+
 function isNatural(num) {
   return Number.isInteger(num) && num > 0 && num < 10;
 }
+const isNatural = num => Number.isInteger(num) && num > 0 && num < 10;
 
 function average(notes) {
   return notes.reduce((a, b) => a + b, 0) / notes.length;

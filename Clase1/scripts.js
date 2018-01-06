@@ -161,9 +161,10 @@ const onlyIntegers = (numbers = []) =>   numbers.filter(number => Number.isInteg
 // =============================================================================
 // Filtrar todos los matemáticos que nacieron en el 1500
 const nacieron1500 = matematicos.filter(
-  matematico => matematico.bornYear === 1500
+  matematico => matematico.bornYear < 1600 && matematico.bornYear > 1500
 );
 
+// ({bornYear})
 // =============================================================================
 // Queremos un array nuevo solamente con los nombres y apellidos
 
@@ -173,9 +174,20 @@ const nombreyapp = matematicos.map(
 
 // =============================================================================
 // Ordenar los matematicos por fecha de nacimiento, del más viejo al más joven
+const ordenar = matematicos.sort(
+  (actual, siguiente) => actual.bornYear < siguiente.bornYear
+);
 
 // =============================================================================
 // Cuantos años vivieron todos los matematicos ?
 
+const edad = matematicos.reduce((total, matematico) => {
+  const age = matematico.passedYear - matematico.bornYear;
+  return total + age;
+}, 0);
 // =============================================================================
 // Hay algún matemático de apellido Einstein en nuestra lista ?
+
+const esta = matematicos.some(
+  matematico => matematico.lastName === "Descartes"
+);

@@ -1,0 +1,9 @@
+1-install node.js
+2- install nvm y npm: https://docs.npmjs.com/getting-started/installing-node
+
+3- update: npm install npm@latest -g
+4- install npm: npm install -g create-react-app
+5- crear de npm: C:\Prisca\Front-End\Clase2>npx create-react-app clase2-app
+C:\Users\PC\AppData\Roaming\npm\node_modules\create-react-app\index.js
+
+6-

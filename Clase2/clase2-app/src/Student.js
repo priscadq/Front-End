@@ -6,10 +6,11 @@ class Student extends Component {
     console.log(firstName);
 
     return (
-      <p>
-        {firstName} test
-        {lastName}
-      </p>
+      <ul>
+        <li>{firstName} </li>
+        <li>{lastName} </li>
+        <li>{dni} </li>
+      </ul>
     );
   }
 }

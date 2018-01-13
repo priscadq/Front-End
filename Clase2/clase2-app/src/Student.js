@@ -1,5 +1,11 @@
 import React, { Component } from "react";
 
+const styles = {
+  grande: {
+    fontSize: 72
+  }
+};
+
 class Student extends Component {
   render() {
     const { firstName, lastName, dni } = this.props;

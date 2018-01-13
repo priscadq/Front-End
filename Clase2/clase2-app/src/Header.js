@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import HeaderImage from "./HeaderImage";
+import HeaderTitle from "./HeaderTitle";
 
 class Header extends Component {
   constructor(props) {
@@ -15,13 +16,14 @@ class Header extends Component {
       showImage: !showImage
     });
   };
+
   render() {
     const { showImage } = this.state;
     return (
       <header className="App-header" onClick={this.handleClick}>
         {showImage ? <HeaderImage /> : null}
 
-        <h1 className="App-title">Welcome to React</h1>
+        <HeaderTitle />
       </header>
     );
   }

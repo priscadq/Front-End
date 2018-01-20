@@ -1,15 +1,27 @@
 import React, { Component } from "react";
+//import HeaderTitle from "./EstudiantesLista";
 
 class Student extends Component {
+  constructor(props) {
+    super();
+
+    this.state = {
+      estud: "",
+      estudiantes:
+        props.estudiantes && props.estudiantes.map(estudiante => estudiante)
+    };
+  }
+
   render() {
-    const { firstName, lastName, dni } = this.props;
-    console.log(firstName);
+    const { estudiantes } = this.state;
+
+    console.log(estudiantes.firstName);
 
     return (
       <ul>
-        <li>{firstName} </li>
-        <li>{lastName} </li>
-        <li>{dni} </li>
+        <li>
+          {estudiantes.firstName} {estudiantes.lastName} {estudiantes.dni}
+        </li>
       </ul>
     );
   }

@@ -5,7 +5,7 @@ const { firstName, lastName, dni } = this.props.estudiantes;
 function EstudiantesLista({ estudiante }) {
   return (
     <ul>
-      <li> </li>
+      <li>{firstName} </li>
     </ul>
   );
 }

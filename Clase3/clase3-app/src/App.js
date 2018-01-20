@@ -52,14 +52,10 @@ class App extends Component {
   }
 
   handleDelete(id) {
-    console.log(id);
-    fetch(
-      `
-    http://react-demo-api.herokuapp.com/posts/${id}`,
-      {
-        mehthod: "DELETE"
-      }
-    ) //` sirve para agregar mas cosas en un ""
+    //console.log(id);
+    fetch(`https://react-demo-api.herokuapp.com/posts/${id}`, {
+      mehthod: "DELETE"
+    }) //` sirve para agregar mas cosas en un ""
       .then(res => res.json())
       .then(result => {
         this.setState({
@@ -70,19 +66,30 @@ class App extends Component {
 
   handleSave(e) {
     e.preventDefault();
+    debugger;
     //console.log(this.state.postDescription);
-    fetch(
-      `
-    http://react-demo-api.herokuapp.com/posts/`,
-      {
-        mehthod: "POST"
+    fetch("http://react-demo-api.herokuapp.com/posts/", {
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
       },
-      JSON.stringify({ description: this.state.postDescription })
-    )
+      mehthod: "POST",
+      body: JSON.stringify({
+        description: this.state.postDescription
+      })
+    })
       .then(res => res.json())
       .then(createdPost => {
-        console.log(createdPost);
-      });
+        //console.log(createdPost);
+        this.setState(prevState => ({
+          posts: prevState.posts.concat({
+            id: createdPost.id,
+            description: this.state.postDescription
+          }),
+          postDescription: ""
+        }));
+      })
+      .catch(e => console.log(e));
   }
   handleChange(e) {
     this.setState({

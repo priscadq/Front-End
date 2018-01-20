@@ -4,8 +4,8 @@ const PostList = props => (
   <ul>
     {props.posts.map(post => (
       <li key={post.id}>
-        {post.description}{" "}
-        <button onClick={() => props.deletePosts}>Delete</button>
+        {post.description}
+        <button onClick={() => props.deletePosts(post.id)}>Delete</button>
       </li>
     ))}
   </ul>

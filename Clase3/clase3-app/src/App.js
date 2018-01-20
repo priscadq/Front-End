@@ -21,7 +21,7 @@ class App extends Component {
     fetch("http://react-demo-api.herokuapp.com/posts") //busca la data, promete ir a buscar la info
       .then(res => res.json()) //no es legible para react, asi que la convierte en json
       .then(results => {
-        console.log(results); //probando si se loguea correcto
+        //console.log(results); //probando si se loguea correcto
         this.setState({
           posts: results //de esta manera se pisa la data q trajo en posts
         });
@@ -70,7 +70,19 @@ class App extends Component {
 
   handleSave(e) {
     e.preventDefault();
-    console.log(this.state.postDescription);
+    //console.log(this.state.postDescription);
+    fetch(
+      `
+    http://react-demo-api.herokuapp.com/posts/`,
+      {
+        mehthod: "POST"
+      },
+      JSON.stringify({ description: this.state.postDescription })
+    )
+      .then(res => res.json())
+      .then(createdPost => {
+        console.log(createdPost);
+      });
   }
   handleChange(e) {
     this.setState({

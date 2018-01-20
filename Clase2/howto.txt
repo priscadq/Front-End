@@ -7,3 +7,9 @@
 C:\Users\PC\AppData\Roaming\npm\node_modules\create-react-app\index.js
 
 6-
+
+
+---------------
+bajar react native para testear luego
+
+

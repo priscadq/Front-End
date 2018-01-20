@@ -1,8 +1,19 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
 class App extends Component {
+  //const posts = []; una forma de hacerlo
+  constructor(props) {
+    super(props);
+    this.state = {
+      posts: []
+    };
+  }
+  componentDidMount() {
+    fetch("http://react-demo-api.herokuapp.com/posts");
+  }
+
   render() {
     return (
       <div className="App">

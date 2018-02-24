@@ -12,4 +12,12 @@ C:\Users\PC\AppData\Roaming\npm\node_modules\create-react-app\index.js
 ---------------
 bajar react native para testear luego
 
+instalar http-sever python
 
+netlify
+
+
+--------------------------
+clase4: browserrouter
+para instalar el nuevo dom
+\Prisca\Front-End\Clase4\marketplace-master>npm i react-router-dom -S

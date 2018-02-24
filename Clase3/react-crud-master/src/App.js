@@ -47,6 +47,7 @@ class App extends Component {
           </form>
           <PostList posts={this.state.posts} editPost={this.handleEdit} deletePost={this.handleDelete} />
         </div>
+        
       </div>
     );
   }
@@ -84,21 +85,24 @@ class App extends Component {
         })
       })
         .then(res => res.json())
-        .then(createdPost => {
+        .then(editPost => {
           //obtenemos indice del post esditado
-          const index = this.state.posts.findIndex(p => p.id === this.state.selectedPostID)
+          const index = this.state.posts.findIndex(p => p.id === this.state.selectedPostID);
+          const updatedPosts = [
+            ...this.state.posts.slice(0,index),
+            {id: this.state.selectedPostID, description: this.state.postDescription},
+
+            ...this.state.posts.slice(index + 1),
+          ];
           this.setState(prevState => ({
-            posts: prevState.posts.concat({
-              id: createdPost.id,
-              description: this.state.postDescription
-            }),
-            postDescription: ""
+            posts: updatedPosts,
+            postDescription: "",
+            selectedPostID: null,
           }));
           this.textInput.focus();
         });
-      
-      
     }
+    else
 
     fetch("https://react-demo-api.herokuapp.com/posts/", {
       headers: {

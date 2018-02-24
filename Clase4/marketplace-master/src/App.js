@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route, Redirect } from "react-router-dom";
+import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 import Admin from "./containers/admin/Admin.js";
 import Home from "./containers/home/Home.js";
 import Product from "./containers/product/Product.js";
@@ -11,10 +11,12 @@ const App = () => (
   <BrowserRouter>
     <section>
       <Menu />
+      <Switch>
       <Route exact path="/" component={Home} />
-      <Route path="/producto/:productId" component={Product} />
-      <Route path="/admin" component={Admin} />
-      {/* <Redirect from="*" exact={true} to="/" /> */}
+      <Route exact path="/producto/:productId" component={Product} />
+      <Route eaxct path="/admin" component={Admin} />
+      <Redirect from=""  to="/" />
+      </Switch>
       <Footer />
     </section>
   </BrowserRouter>

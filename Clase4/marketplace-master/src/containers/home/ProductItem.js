@@ -8,7 +8,7 @@ export default class ProducItem extends Component {
     const { id, imageUrl, title, description } = this.props.product;
 
     return (
-      <div className="col-lg-4 col-sm-6 portfolio-item">
+      
         <div className="card h-100">
             <Link to={`/producto/${id}`}>
             <img className="card-img-top" src={imageUrl} alt={title} />
@@ -22,7 +22,7 @@ export default class ProducItem extends Component {
             <p className="card-text">{description}</p>
           </div>
         </div>
-      </div>
+      
     );
   }
 }

@@ -18,13 +18,16 @@ const getProducts = () => {
      }
      return items;      
 } 
+
+window.products = getProducts();
+
 export default class Home extends Component {
   constructor(props) {
     super(props);
 
       // Hacemos un mockup de productos en memoria, luego los traeremos de nuestra API
       this.state = {
-        products: getProducts()
+        products: window.products
       };
 
   }

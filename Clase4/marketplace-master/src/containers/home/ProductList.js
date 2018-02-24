@@ -8,7 +8,7 @@ const ProductList = (props) => (
   {
     props.products.map(item => (
 
-     <div className="col-lg-4 col-sm-6 portfolio-item">  key={item.id}  
+     <div className="col-lg-4 col-sm-6 portfolio-item"  key={item.id} >
      <ProductItem product={item} />
      </div>
      )

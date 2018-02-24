@@ -3,24 +3,6 @@ import React, { Component } from 'react';
 import ProductFilter from './ProductFilter';
 import ProductList from './ProductList';
 
-const getProducts = () => {
-     const items = [];
-
-     for (let i = 1; i <= 10 ; i++) {
-       items.push (
-         {
-           id: i,
-           imageUrl: 'http://placehold.it/700x400', 
-           title: 'Producto '+ i,
-           description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!' 
-          }
-       );
-     }
-     return items;      
-} 
-
-window.products = getProducts();
-
 export default class Home extends Component {
   constructor(props) {
     super(props);

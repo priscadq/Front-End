@@ -14,7 +14,7 @@ const App = () => (
       <Route exact path="/" component={Home} />
       <Route path="/product" component={Product} />
       <Route path="/admin" component={Admin} />
-      {/* <Redirect from="*" to= /> */}
+      {/* <Redirect from="*" exact={true} to="/" /> */}
       <Footer />
     </section>
   </BrowserRouter>

@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
-export default class Admin extends Component {
+export default class Product extends Component {
+    constructor(props) {
+        super(props);
+        console.log(props);
+    }
     render() {
         return (
             <div>

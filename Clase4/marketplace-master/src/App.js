@@ -12,7 +12,7 @@ const App = () => (
     <section>
       <Menu />
       <Route exact path="/" component={Home} />
-      <Route path="/product" component={Product} />
+      <Route path="/producto/:productId" component={Product} />
       <Route path="/admin" component={Admin} />
       {/* <Redirect from="*" exact={true} to="/" /> */}
       <Footer />

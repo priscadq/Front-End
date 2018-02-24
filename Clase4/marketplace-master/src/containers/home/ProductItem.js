@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
 
 export default class ProducItem extends Component {
   render() {
@@ -8,12 +10,14 @@ export default class ProducItem extends Component {
     return (
       <div className="col-lg-4 col-sm-6 portfolio-item">
         <div className="card h-100">
-          <a href="#">
+            <Link to={`/producto/${5}`}>
             <img className="card-img-top" src={imageUrl} alt={title} />
-          </a>
+            </Link>
           <div className="card-body">
             <h4 className="card-title">
-              <a href="#">{title}</a>
+            <Link to={`/producto/${5}`}>
+            {title}
+            </Link>
             </h4>
             <p className="card-text">{description}</p>
           </div>

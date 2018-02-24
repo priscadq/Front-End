@@ -8,7 +8,7 @@ export default class Product extends Component {
     render() {
         return (
             <div>
-            This is Product page
+            This is Product page and you have selected {this.props.match.params.productId}
             </div>
         );
     }

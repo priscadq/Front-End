@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import Footer from '../../layout/Footer';
-import Menu from '../../layout/Menu';
 import ProductFilter from './ProductFilter';
 import ProductList from './ProductList';
 
@@ -9,7 +7,7 @@ export default class Home extends Component {
   render() {
     return (
       <section>
-        <Menu />
+       
         <div className="container">
           <ProductFilter />
           <ProductList />
@@ -37,7 +35,7 @@ export default class Home extends Component {
             </li>
           </ul>
         </div>
-        <Footer />            
+          
       </section>
     );
   }

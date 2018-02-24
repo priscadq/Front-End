@@ -9,18 +9,24 @@ export default class Home extends Component {
 
       // Hacemos un mockup de productos en memoria, luego los traeremos de nuestra API
       this.state = {
-        products: window.products
+        products: window.products,
+        filteredProducts: window.products,
       };
 
-  }
+      //Handlers
+      this.filterProducts = this.filterProducts.bind(this);
 
+  }
+  filterProducts(filter) {
+    console.log('Filsto desde el padre', filter);
+  }
   render() {    
 
     return (
       <section>
        
         <div className="container">
-          <ProductFilter />
+          <ProductFilter onProductFilter={this.filterProducts} />
           <ProductList products={this.state.products} />
 
           <ul className="pagination justify-content-center">

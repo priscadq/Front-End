@@ -3,14 +3,41 @@ import React, { Component } from 'react';
 import ProductFilter from './ProductFilter';
 import ProductList from './ProductList';
 
+const getProducts = () => {
+     const items = [];
+
+     for (let i = 1; i <= 10 ; i++) {
+       items.push (
+         {
+           id: i,
+           imageUrl: 'http://placehold.it/700x400', 
+           title: 'Producto '+ i,
+           description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!' 
+          }
+       );
+     }
+     return items;      
+} 
 export default class Home extends Component {
-  render() {
+  constructor(props) {
+    super(props);
+
+      // Hacemos un mockup de productos en memoria, luego los traeremos de nuestra API
+      this.state = {
+        products: getProducts()
+      };
+
+  }
+
+  render() {    
+
     return (
       <section>
        
         <div className="container">
           <ProductFilter />
-          <ProductList />
+          <ProductList products={this.state.products} />
+
           <ul className="pagination justify-content-center">
             <li className="page-item">
               <a className="page-link" href="#" aria-label="Previous">

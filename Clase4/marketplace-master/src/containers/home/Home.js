@@ -18,7 +18,10 @@ export default class Home extends Component {
 
   }
   filterProducts(filter) {
-    console.log('Filsto desde el padre', filter);
+    // console.log('Filsto desde el padre', filter);
+    this.setState({
+      filteredProducts: this.state.products.filter( p => p.title.toLowerCase().includes(filter.toLowerCase()))
+    })
   }
   render() {    
 
@@ -27,7 +30,7 @@ export default class Home extends Component {
        
         <div className="container">
           <ProductFilter onProductFilter={this.filterProducts} />
-          <ProductList products={this.state.products} />
+          <ProductList products={this.state.filteredProducts} />
 
           <ul className="pagination justify-content-center">
             <li className="page-item">

@@ -57,6 +57,7 @@
       //Configuracion e inicializacion
       var store = Redux.createStore(
         calculadoraReducer,
+        //antes estaba en la funcion como state=0
         0,
         window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
       );

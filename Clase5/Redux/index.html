@@ -20,7 +20,7 @@
         //Reducer
 
          //(state, action) => newstate
-      function calculadoraReducer(state = 0, action) {
+      function calculadoraReducer(state, action) {
         console.log(action,state)
         switch (action.type) {
           case 'LIMPIAR': 
@@ -57,6 +57,7 @@
       //Configuracion e inicializacion
       var store = Redux.createStore(
         calculadoraReducer,
+        0,
         window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
       );
       

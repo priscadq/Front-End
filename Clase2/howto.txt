@@ -6,7 +6,10 @@
 5- crear de npm: C:\Prisca\Front-End\Clase2>npx create-react-app clase2-app
 C:\Users\PC\AppData\Roaming\npm\node_modules\create-react-app\index.js
 
-6-
+
+cuando bajas uno
+6- npm install
+npm start
 
 
 ---------------
@@ -21,3 +24,6 @@ netlify
 clase4: browserrouter
 para instalar el nuevo dom
 \Prisca\Front-End\Clase4\marketplace-master>npm i react-router-dom -S
+
+webpack para correrlo del fondo
+

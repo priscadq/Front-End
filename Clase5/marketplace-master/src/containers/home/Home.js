@@ -1,19 +1,27 @@
 import React, { Component } from 'react';
-
+import { connect } from 'react-redux';
 import ProductFilter from './ProductFilter';
 import ProductList from './ProductList';
 import ProductPagination from './ProductPagination';
+import { filterProducts } from  '../../actions/productActions';
 
-export default class Home extends Component {
+const mapStateToProps = (state) => ({
+  products: state.products,
+  filteredProducts: state.filteredProducts,
+});
+const mapDispatchToProps = (dispatch) => ({
+  filterProducts: filter => dispatch(filterProducts(filter))
+});
+
+class Home extends Component {
   constructor(props) {
     super(props);
 
     // Hacemos un mockup de productos en memoria, luego los traeremos de nuestra API
     this.state = {
       currentPage: 1,
-      filteredProducts: window.products,
       itemsPerPage: 3,
-      products: window.products
+      
     };
 
     // Handlers
@@ -22,9 +30,7 @@ export default class Home extends Component {
   }
 
   handleFilterProducts(filter) {
-    this.setState({
-      filteredProducts: this.state.products.filter(p => p.title.trim().toLowerCase().includes(filter.trim().toLowerCase()))
-    });
+    this.props.filterProducts(filter)
   }
 
   handlePageChange(currentPage = 1) {
@@ -34,7 +40,9 @@ export default class Home extends Component {
   }
 
   render() {
-    const { currentPage, filteredProducts, itemsPerPage } = this.state;
+    console.log(this.props)
+    const { currentPage, itemsPerPage } = this.state;
+    const { filteredProducts } = this.props;
     const paginatedProducts = filteredProducts.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
     
     return (
@@ -46,3 +54,6 @@ export default class Home extends Component {
     );
   }
 }
+
+//solo para los containers, lo contenedores hay que conectarlos con redux
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

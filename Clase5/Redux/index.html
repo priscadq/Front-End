@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Redux basic example</title>
+    <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
+  </head>
+  <body>
+    <div>
+      <p>
+        <input type="number" id="operando" />
+        <div id="resultado">0</div>
+        <button id="btnSumar">+</button>
+        <button id="btnRestar">-</button>
+        <button id="btnMultiplicar">*</button>
+        <button id="btnDividir">/</button>
+        <button id="btnLimpiar">C</button>
+      </p>
+    </div>
+    <script>
+        //Reducer
+
+         //(state, action) => newstate
+      function calculadoraReducer(state = 0, action) {
+        console.log(action,state)
+        switch (action.type) {
+          case 'LIMPIAR': 
+            return 0
+          case 'SUMAR':
+            return state + action.operando
+          case 'RESTAR':
+            return state - action.operando
+          case 'MULTIPLICAR':
+            return state * action.operando
+
+          case 'DIVIDIR': {
+              if (action.operando === 0) { 
+                  alert('No divida por 0!');
+                  return state;
+              } else {
+              return state / action.operando
+              }
+          }
+        
+          default:
+            return state
+        }
+      }
+      //Acciones: 
+      /*
+      { type: 'SUMAR'}
+      { type: 'RESTAR'}
+      { type: 'MULTIPLICAR'}
+      { type: 'DIVIDIR'}*/
+
+
+
+      //Configuracion e inicializacion
+      var store = Redux.createStore(
+        calculadoraReducer,
+        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+      );
+      
+      var operandoEl = document.getElementById('operando')
+
+      var resultadoEl = document.getElementById('resultado')
+
+      // renderiza y se dispara cada vez que se dispara una accion
+      function render() {
+        resultadoEl.innerHTML = store.getState().toString()
+        resultadoEl.value = null
+        operandoEl.focus()
+      }
+      render()
+      store.subscribe(render)
+
+
+      //handlers
+      document.getElementById('btnSumar')
+        .addEventListener('click', function () {
+          store.dispatch({ type: 'SUMAR', operando: +operandoEl.value })
+        })
+        document.getElementById('btnRestar')
+        .addEventListener('click', function () {
+          store.dispatch({ type: 'RESTAR', operando: +operandoEl.value })
+        })
+        document.getElementById('btnMultiplicar')
+        .addEventListener('click', function () {
+          store.dispatch({ type: 'MULTIPLICAR', operando: +operandoEl.value })
+        })
+        document.getElementById('btnDividir')
+        .addEventListener('click', function () {
+          store.dispatch({ type: 'DIVIDIR', operando: +operandoEl.value })
+        })
+        document.getElementById('btnLimpiar')
+        .addEventListener('click', function () {
+          store.dispatch({ type: 'LIMPIAR' })
+        })
+    </script>
+  </body>
+</html>

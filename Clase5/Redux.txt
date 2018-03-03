@@ -1,0 +1,1 @@
+una libreria creada para controlar el estado de nuestra aplicacion

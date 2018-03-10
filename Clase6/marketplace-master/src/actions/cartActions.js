@@ -6,3 +6,4 @@ export const incrementProduct =
   id => ({ type: 'INCREMENT_PRODUCT', id });
 export const decrementProduct =
   id => ({ type: 'DECREMENT_PRODUCT', id });
+

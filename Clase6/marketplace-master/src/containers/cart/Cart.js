@@ -13,7 +13,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   decrementProduct: id => dispatch(decrementProduct(id)), 
   incrementProduct: id => dispatch(incrementProduct(id)),
-  iremoveProduct: id => dispatch(removeProduct(id)),
+  removeProduct: id => dispatch(removeProduct(id)),
 
 })
 //-----------------------

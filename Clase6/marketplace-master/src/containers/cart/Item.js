@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function Item(props) {
-  const { decrementProduct, incrementProduct, item, removeProduct } = props;
+  const { decrementProduct, incrementProduct, item,  removeProduct } = props;
   return (
     <tr>
       <td>{item.title}</td>

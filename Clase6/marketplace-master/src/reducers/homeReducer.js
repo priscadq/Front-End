@@ -9,6 +9,7 @@ const getProducts = () => {
         imageUrl: 'http://placehold.it/700x400',
         title: words[i - 1],
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!'
+        
       }
     );
   }
@@ -20,7 +21,8 @@ const initialState = {
   allProducts: getProducts(),
   currentPage: 1,
   filteredProducts: getProducts(),
-  itemsPerPage: 6
+  itemsPerPage: 6,
+  selectProduct: null
 };
 
 export default function homeReducer(state = initialState, action) {
@@ -30,6 +32,11 @@ export default function homeReducer(state = initialState, action) {
         ...state,
         filteredProducts: !action.filter ? state.allProducts : state.allProducts.filter(p => p.title.trim().toLowerCase().includes(action.filter.trim().toLowerCase()))
       };
+    case 'SELECT_PRODUCT': 
+    return {
+      ...state,
+      selectProduct: action.product
+    };
     case 'SET_CURRENT_PAGE':
       return {
         ...state,

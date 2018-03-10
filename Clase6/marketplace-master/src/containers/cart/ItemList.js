@@ -11,6 +11,7 @@ export default function ItemList(props) {
           <th scope="col">Cantidad</th>
           <th scope="col">Precio</th>
           <th scope="col">Total por item</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>

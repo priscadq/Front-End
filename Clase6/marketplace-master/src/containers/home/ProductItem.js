@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 export default class ProducItem extends Component {
   render() {
     // Destructuramos las propiedades necesarias del objeto producto
-    const { id, imageUrl, title, description } = this.props.product;
+    const { id, imageUrl, title, description, } = this.props.product;
+    const { onAddProduct, product } = this.props;
 
     return (
       <div className="col-lg-4 col-sm-6 portfolio-item">
@@ -20,7 +21,7 @@ export default class ProducItem extends Component {
             </h4>
             <p className="card-text">{description}</p>
             <p className="text-center">
-              <button className="btn btn-dark">Add (+)</button>
+              <button className="btn btn-dark" onClick={() => onAddProduct(product)}>Add (+)</button>
             </p>
           </div>
         </div>

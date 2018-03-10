@@ -1,4 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { addProduct } from '../../actions/cartActions';
+/*
+const mapStateToProps = (state) => ({
+  selectedProduct
+})*/
 
 export default class Product extends Component {
   constructor(props) {
@@ -8,6 +14,8 @@ export default class Product extends Component {
       product: window.products.find(i => i.id === +props.match.params.productId)
     };
   }
+
+
 
   render() {
     const { description, imageUrl, title } = this.state.product;

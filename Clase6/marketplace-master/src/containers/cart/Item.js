@@ -12,6 +12,7 @@ export default function Item(props) {
       </td>
       <td>{item.price}</td>
       <td>{item.quantity * item.price}</td>
+      <td><button type="button" className="btn btn-danger"><i className="fa fa-trash" /></button></td>
     </tr>
   );
 }

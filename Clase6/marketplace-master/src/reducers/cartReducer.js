@@ -1,7 +1,7 @@
 export default function cartReducer(state = [], action) {
   switch (action.type) {
     case 'ADD_PRODUCT':
-      return state.concat(action.product);
+      return state.concat({...action.product, quantity: 1});
     case 'REMOVE_PRODUCT':
       return state.filter(p => p.id !== action.id);
     case 'INCREMENT_PRODUCT':

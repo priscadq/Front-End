@@ -10,7 +10,7 @@ const ProductList = (props) => {
   return (
   <div className="row">
     {
-      props.products.map(item => (<ProductItem key={item.id} product={item} onAddProduct={addProduct} selectProduct={selectProduct} />))
+      props.products.map(item => (<ProductItem key={item.id} product={item} addProduct={addProduct} selectProduct={selectProduct} />))
     }
   </div>
   );

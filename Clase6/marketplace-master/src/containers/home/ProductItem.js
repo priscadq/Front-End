@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+
+
 export default class ProducItem extends Component {
   render() {
     // Destructuramos las propiedades necesarias del objeto producto

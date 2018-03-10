@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function Item(props) {
-  const { decrementProduct, incrementProduct, item } = props;
+  const { decrementProduct, incrementProduct, item, removeProduct } = props;
   return (
     <tr>
       <td>{item.title}</td>
@@ -12,7 +12,7 @@ export default function Item(props) {
       </td>
       <td>{item.price}</td>
       <td>{item.quantity * item.price}</td>
-      <td><button type="button" className="btn btn-danger"><i className="fa fa-trash" /></button></td>
+      <td><button type="button" className="btn btn-danger"  onClick={() => removeProduct(item.id)}><i className="fa fa-trash" /></button></td>
     </tr>
   );
 }

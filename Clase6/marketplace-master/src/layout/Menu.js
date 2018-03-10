@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
+import CartViewer from './CartViewer';
 
 export default class Menu extends Component {
   render() {
@@ -32,13 +33,7 @@ export default class Menu extends Component {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink
-                  exact
-                  className="nav-link"
-                  to="/cart"
-                  activeClassName="active">
-                  <i className="fa fa-shopping-cart"></i> (0)
-                </NavLink>
+              <CartViewer />
               </li>
             </ul>
           </div>

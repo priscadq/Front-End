@@ -11,6 +11,8 @@ cuando bajas uno
 6- npm install
 npm start
 
+zoom en lugar de slack o hangout
+
 
 ---------------
 bajar react native para testear luego

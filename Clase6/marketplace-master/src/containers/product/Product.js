@@ -1,24 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addProduct } from '../../actions/cartActions';
-/*
+
 const mapStateToProps = (state) => ({
-  selectedProduct
-})*/
+  allProducts: state.home.allProducts,
+  selectedProduct: state.home.selectedProduct
+});
 
-export default class Product extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      product: window.products.find(i => i.id === +props.match.params.productId)
-    };
-  }
+const mapDispatchToProps = (dispatch) => ({
+  addProduct: product => dispatch(addProduct(product))
+});
 
 
-
+class Product extends Component {
   render() {
-    const { description, imageUrl, title } = this.state.product;
+    
+    const product = this.props.selectedProduct 
+    || this.props.allProducts.find(i => i.id === +this.props.match.params.productId);
+    const { description, imageUrl, title } = product;
     
     return (
       <div className="card h-100">
@@ -26,8 +25,17 @@ export default class Product extends Component {
         <div className="card-body">
           <h4 className="card-title">{title}</h4>
           <p className="card-text">{description}</p>
+
+          <p className="text-center">
+              <button className="btn btn-dark" onClick={() => this.props.addProduct(product)}>Add (+)</button>
+          </p>
+
         </div>
       </div>
     );
-  }
-}
+  };
+};
+
+export default connect(
+  mapStateToProps, 
+  mapDispatchToProps)(Product);

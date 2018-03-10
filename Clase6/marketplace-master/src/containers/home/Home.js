@@ -56,8 +56,7 @@ class Home extends Component {
         <ProductFilter onProductFilter={this.handleFilterProducts} />
         <ProductList 
         products={paginatedProducts} 
-        onAddProduct={this.handleAddProduct} 
-        onSelectProduct={this.handleSelectProduct}
+        {...this.props}
         />
         <ProductPagination
           itemsPerPage={itemsPerPage}
